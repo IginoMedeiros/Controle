@@ -46,7 +46,7 @@ public class Controle implements Controlador{
             System.out.println(" Qual volume : " + getVolume());
         }
         for (int i=0; i<=this.getVolume();i++)
-            System.out.printf("  %s %", i);
+            System.out.printf("%s" ,i + "%\n");
     }
     @Override
     public void fecharMenu() {
@@ -58,11 +58,15 @@ public class Controle implements Controlador{
              this.setVolume(this.getVolume()+1);
         }
     }
-
+//throws = lançar
     @Override
-    public void diminuirVolume() {
-        if(getLigado()==true ){
+    public void diminuirVolume() throws NullPointerException{
+        if(getLigado() ){
             setVolume(this.getVolume()-1);
+        }
+        else{
+            //lança exceção
+            throw new NullPointerException();
         }
     }
     @Override
